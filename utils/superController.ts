@@ -97,4 +97,4 @@ class SuperController {
    }
 }
 
-module.exports = SuperController;
+export default SuperController;
