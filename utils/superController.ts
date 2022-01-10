@@ -21,9 +21,9 @@ class SuperController {
       try {
          const insertedObject = await this._model.create(req.body);
 
-         return res.status(200).json(insertedObject);
+         res.status(200).json(insertedObject);
       } catch (error) {
-         return res.status(500).json({ message: error });
+         res.status(500).json({ message: error });
       }
    }
 
@@ -38,9 +38,9 @@ class SuperController {
       try {
          const foundObject = await this._model.findById(id);
 
-         return res.status(200).json(foundObject);
+         res.status(200).json(foundObject);
       } catch (error) {
-         return res.status(500).json({ message: error });
+         res.status(500).json({ message: error });
       }
    }
 
@@ -53,9 +53,9 @@ class SuperController {
       try {
          const allDocuments = await this._model.find();
 
-         return res.status(200).json(allDocuments);
+         res.status(200).json(allDocuments);
       } catch (error) {
-         return res.status(500).json({ message: error });
+         res.status(500).json({ message: error });
       }
    }
 
@@ -74,9 +74,9 @@ class SuperController {
 
       try {
          const updatedDocument = await this._model.findByIdAndUpdate(id, req.body, options);
-         return res.status(200).json(updatedDocument);
+         res.status(200).json(updatedDocument);
       } catch (error) {
-         return res.status(500).json({ message: error });
+         res.status(500).json({ message: error });
       }
    }
 
@@ -90,9 +90,9 @@ class SuperController {
 
       try {
          const deletedDocument = await this._model.findByIdAndRemove(id);
-         return res.status(200).json(deletedDocument);
+         res.status(200).json(deletedDocument);
       } catch (error) {
-         return res.status(500).json({ message: error });
+         res.status(500).json({ message: error });
       }
    }
 }

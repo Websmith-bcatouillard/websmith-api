@@ -23,4 +23,10 @@ router.route('/:id')
       userController.delete(req, res);
    })
 
+router.route('/login')
+   .post((req: Request, res: Response) => {
+      userController.login(req, res)
+   })
+
+
 export default router;
