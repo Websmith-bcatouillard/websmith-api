@@ -20,3 +20,10 @@ As a Restful API, this project have to respect criterias such as :
 - Code on demand (optional)
 
 
+## Setup
+
+In order to create SECRET_KEY for JWT, you have to run a node shell and execute this command :
+
+```shell
+require('crypto').randomBytes(64).toString('hex')
+```
