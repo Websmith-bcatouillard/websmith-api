@@ -7,7 +7,7 @@ class ProjectController extends SuperController {
       super(model)
    }
 
-   async create(req: Request, res: Response) {
+   async create(req: any, res: any) {
       const { name } = req.body;
 
       try {

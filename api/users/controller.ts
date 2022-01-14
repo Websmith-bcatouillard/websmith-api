@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import { hash, genSalt, compare } from 'bcrypt';
 import { signToken } from '../../utils/authToken';
 import { JwtPayload } from 'jsonwebtoken';
@@ -20,7 +19,7 @@ class UserController extends SuperController {
       * @param {Request} req - Express Request Object
       * @param {Response} res - Express Response Object
       */
-   async create(req: Request, res: Response) {
+   async create(req: any, res: any) {
       const { password, username } = req.body;
 
       try {
@@ -59,7 +58,7 @@ class UserController extends SuperController {
       * @param {Request} req - Express Request Object
       * @param {Response} res - Express Response Object
       */
-   async login(req: Request, res: Response){
+   async login(req: any, res: any){
       const { username, password } = req.body;
 
       try {   

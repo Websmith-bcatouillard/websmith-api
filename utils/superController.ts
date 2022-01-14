@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import { Model } from 'mongoose';
 
 /**
@@ -17,7 +16,7 @@ class SuperController {
       * @param {Request} req - Express Request Object
       * @param {Response} res - Express Response Object
       */
-   async create(req: Request, res: Response) {
+   async create(req: any, res: any) {
       try {
          const insertedObject = await this._model.create(req.body);
 
@@ -32,7 +31,7 @@ class SuperController {
       * @param {Request} req - Express Request Object
       * @param {Response} res - Express Response Object
       */
-   async findById(req: Request, res: Response) {
+   async findById(req: any, res: any) {
       const { id } = req.params;
 
       try {
@@ -49,7 +48,7 @@ class SuperController {
       * @param {Request} req - Express Request Object
       * @param {Response} res - Express Response Object
       */
-   async all(req: Request, res: Response) {
+   async all(req: any, res: any) {
       try {
          const allDocuments = await this._model.find();
 
@@ -64,7 +63,7 @@ class SuperController {
       * @param {Request} req - Express Request Object
       * @param {Response} res - Express Response Object
       */
-   async update(req: Request, res: Response) {
+   async update(req: any, res: any) {
       const { id } = req.params;
       const options = {
          upsert: false,
@@ -85,7 +84,7 @@ class SuperController {
       * @param {Request} req - Express Request Object
       * @param {Response} res - Express Response Object
       */
-   async delete(req: Request, res: Response) {
+   async delete(req: any, res: any) {
       const { id } = req.params;
 
       try {
