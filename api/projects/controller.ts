@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import SuperController from '../../utils/superController';
 import projectModel from './model';
 class ProjectController extends SuperController {
