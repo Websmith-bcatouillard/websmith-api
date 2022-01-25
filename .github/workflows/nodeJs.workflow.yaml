@@ -12,54 +12,54 @@ on:
 jobs:
   build:
 
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  strategy:
-      matrix:
-        node-version: [14.x, 16.x]
+    strategy:
+        matrix:
+          node-version: [14.x, 16.x]
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: |
-          **/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-    - name: Install dependencies
-      run: npm install
-    - run: npm run build --if-present
+      - name: Install dependencies
+        run: npm install
+      - run: npm run build --if-present
 
-    - name: Run the tests and generate coverage report
-      run: npm test -- --coverage
+      - name: Run the tests and generate coverage report
+        run: npm test -- --coverage
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
 
-    - name: Build
-      run: npm run build
+      - name: Build
+        run: npm run build
 
-    - name: Deploy
-      run: |
-        git config --global user.name $user_name
-        git config --global user.email $user_email
-        git remote set-url origin https://${github_token}@github.com/${repository}
-        npm run deploy
-      env:
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
-        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        repository: ${{ github.repository }}
-        BCRYPT_SALTROUNDS: ${{ secrets.BCRYPT_SALTROUNDS }}
-        MONGODB_URI: ${{ secrets. }}
-        PORT: ${{ secrets. }}
-        SECRET_KEY: ${{ secrets. }}
+      - name: Deploy
+        run: |
+          git config --global user.name $user_name
+          git config --global user.email $user_email
+          git remote set-url origin https://${github_token}@github.com/${repository}
+          npm run deploy
+        env:
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          repository: ${{ github.repository }}
+          BCRYPT_SALTROUNDS: ${{ secrets.BCRYPT_SALTROUNDS }}
+          MONGODB_URI: ${{ secrets. }}
+          PORT: ${{ secrets. }}
+          SECRET_KEY: ${{ secrets. }}
