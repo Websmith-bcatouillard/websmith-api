@@ -11,7 +11,7 @@
     "start:prod": "npm run build && node ./dist/src/server.js",
     "test": "jest --detectOpenHandles",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Benjamin Catouillard",
   "license": "ISC",
