@@ -2,13 +2,16 @@
   "name": "websmith-back",
   "version": "1.0.0",
   "description": "Websmith Restful API",
+  "homepage": "https://bcatouillard.github.io/websmith-api",
   "main": "dist/bin/server.js",
   "scripts": {
     "lint": "eslint . --ext .ts",
     "build": "npx tsc",
     "start:dev": "nodemon",
     "start:prod": "npm run build && node ./dist/src/server.js",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
   },
   "author": "Benjamin Catouillard",
   "license": "ISC",
@@ -17,6 +20,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "gh-pages": "^3.2.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
     "morgan": "^1.10.0"
