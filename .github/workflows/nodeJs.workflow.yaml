@@ -60,6 +60,6 @@ jobs:
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           repository: ${{ github.repository }}
           BCRYPT_SALTROUNDS: ${{ secrets.BCRYPT_SALTROUNDS }}
-          MONGODB_URI: ${{ secrets. }}
-          PORT: ${{ secrets. }}
-          SECRET_KEY: ${{ secrets. }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          PORT: ${{ secrets.PORT }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
