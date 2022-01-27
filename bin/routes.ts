@@ -4,45 +4,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import userRoutes from '../api/users/route';
 import projectRoutes from '../api/projects/route';
 import { verifyMiddleware } from '../utils/authToken';
-
-const swaggerOptions = {
-   swaggerDefinition: {
-      info: {
-         version: "1.0.0",
-         title: "Websmith API",
-         description: "Websmith API Documentation",
-         contact: {
-            name: "Benjamin Catouillard"
-         },
-         servers: ["http://localhost:5000"]
-      },
-      tags: [
-         {
-            "name": "user",
-            "description": "User Endpoints",
-         },
-         {
-            "name": "project",
-            "description": "Project Endpoints"
-         },
-      ],
-      definitions: {
-         User: {
-            type: "object",
-            properties: {
-               username: {
-                  type: "string",
-               },
-               password: {
-                  type: "string",
-               }
-            },
-         }
-      },
-   },
-   // ['.routes/*.js']
-   apis: ["./api/**/route.ts"]
-};
+import swaggerOptions from '../utils/swaggerOptions';
 
 const register = (app: Application) => {
 
