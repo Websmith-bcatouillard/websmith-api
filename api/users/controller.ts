@@ -23,8 +23,8 @@ class UserController extends SuperController {
       const { password, username } = req.body;
 
       try {
-         const isUserAlreadyIn = await userModel.find({ username: username});
-
+         const isUserAlreadyIn = await userModel.findOne({ username: username});
+         
          if(isUserAlreadyIn){
             res.status(403).json({ success: false, message: 'User is already registered'});
             return;
