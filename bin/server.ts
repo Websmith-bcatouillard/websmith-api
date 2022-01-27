@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { json } from 'body-parser';
 import morgan from 'morgan';
+import compression from 'compression';
 import connectToDb  from './database';
 import register from './routes';
 
@@ -26,6 +27,8 @@ const corsOptions = {
    credentials: true
 };
 
+app.disable('x-powered-by');
+app.use(compression());
 app.use(cors(corsOptions));
 app.use(json());
 app.use(morgan(':method :url :status - :response-time ms'));
