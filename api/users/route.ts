@@ -5,34 +5,6 @@ import { verifyMiddleware } from '../../utils/authToken';
 const userController = new UserController();
 const router = Router();
 
-/**
- * @openapi
- * /users/:
- *   post:
- *     tags:
- *       - "user"
- *     summary: Register a new user
- *     operationId: register 
- *     description: Register new user
- *     parameters:
- *     - in: "body"
- *       name: "body"
- *       description: User object
- *       required: true
- *       schema:
- *         $ref: "#/definitions/User"  
- *     responses:
- *       200:
- *         description: Returns a success message.
- *       403:
- *         description: User is already registered.
- *       500:
- *         description: Returns an error message.
- *       501:
- *         description: Returns a salt password error message.
- *       502:
- *         description: Returns a hash password error message.
- */
 router.route('/')
    .post((req: Request, res: Response) => {
       userController.create(req, res);
